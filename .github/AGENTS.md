@@ -68,7 +68,7 @@ jobs:
 | Type | Convention | Example |
 |------|------------|---------|
 | Script file | `update-<formula>.rb` | `update-formula.rb` |
-| Workflow file | `update-<purpose>.yml` | `update-stable.yml` |
+| Workflow file | `update-<formula>-<channel>.yml` | `update-sing-box-ref1nd-stable.yml` |
 
 ### Error handling in scripts
 - Exit 0 on "already up-to-date" (not an error).
@@ -87,7 +87,7 @@ jobs:
 
 ## Examples
 - `update-formula.rb` — binary formula auto-update from GitHub Releases.
-- `update-stable.yml` / `update-testing.yml` — separate workflows per channel.
+- `update-sing-box-ref1nd-stable.yml` / `update-sing-box-ref1nd-testing.yml` — per-channel workflows.
 
 ## When stuck
 - Test script locally: `ruby .github/scripts/update-formula.rb --stable`

@@ -29,7 +29,9 @@ brew install love4taylor/tap/<formula>
 
 ## Updates
 
-Formulae are automatically checked for new releases every hour and updated when upstream publishes a new version.
+Formulae with upstream GitHub Releases are checked hourly and updated automatically when a new version is published.
 
-- [**update-stable**](.github/workflows/update-stable.yml) — tracks stable releases
-- [**update-testing**](.github/workflows/update-testing.yml) — tracks pre-releases
+| Workflow | Formula | Channel |
+|----------|---------|---------|
+| [`update-sing-box-ref1nd-stable`](.github/workflows/update-sing-box-ref1nd-stable.yml) | `sing-box-ref1nd` | stable |
+| [`update-sing-box-ref1nd-testing`](.github/workflows/update-sing-box-ref1nd-testing.yml) | `sing-box-ref1nd` | pre-release |
