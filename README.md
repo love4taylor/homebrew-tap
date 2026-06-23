@@ -5,13 +5,6 @@
 
 Homebrew tap for miscellaneous formulae and casks.
 
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/love4taylor/homebrew-tap/update-stable.yml?label=stable)](https://github.com/love4taylor/homebrew-tap/actions/workflows/update-stable.yml)
-[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/love4taylor/homebrew-tap/update-testing.yml?label=testing)](https://github.com/love4taylor/homebrew-tap/actions/workflows/update-testing.yml)
-
-[Installation](#install) ·
-[Available Formulae](#formulae) ·
-[Updates](#updates)
-
 </div>
 
 ## Install
