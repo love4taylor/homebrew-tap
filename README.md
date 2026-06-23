@@ -1,18 +1,42 @@
-# Love4taylor Tap
+<!-- markdownlint-disable MD033 MD041 -->
+<div align="center">
 
-## How do I install these formulae?
+# 🍺 love4taylor/tap
 
-`brew install love4taylor/tap/<formula>`
+Homebrew tap for miscellaneous formulae and casks.
 
-Or `brew tap love4taylor/tap` and then `brew install <formula>`.
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/love4taylor/homebrew-tap/update-stable.yml?label=stable)](https://github.com/love4taylor/homebrew-tap/actions/workflows/update-stable.yml)
+[![GitHub Actions](https://img.shields.io/github/actions/workflow/status/love4taylor/homebrew-tap/update-testing.yml?label=testing)](https://github.com/love4taylor/homebrew-tap/actions/workflows/update-testing.yml)
 
-Or, in a `brew bundle` `Brewfile`:
+[Installation](#install) ·
+[Available Formulae](#formulae) ·
+[Updates](#updates)
 
-```ruby
-tap "love4taylor/tap"
-brew "<formula>"
+</div>
+
+## Install
+
+```bash
+brew tap love4taylor/tap
+brew install <formula>
 ```
 
-## Documentation
+Or install directly without tapping first:
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+```bash
+brew install love4taylor/tap/<formula>
+```
+
+## Formulae
+
+| Formula | Description | Version |
+|---------|-------------|---------|
+| `sing-box-ref1nd` | Universal proxy platform (reF1nd fork) — stable | [![stable](https://img.shields.io/github/v/release/reF1nd/sing-box-releases?filter=!*-alpha*&label=)](https://github.com/reF1nd/sing-box-releases/releases) |
+| `sing-box-ref1nd-testing` | Universal proxy platform (reF1nd fork) — testing | [![testing](https://img.shields.io/github/v/release/reF1nd/sing-box-releases?filter=*-alpha*&label=)](https://github.com/reF1nd/sing-box-releases/releases) |
+
+## Updates
+
+Formulae are automatically checked for new releases every hour and updated when upstream publishes a new version.
+
+- [**update-stable**](.github/workflows/update-stable.yml) — tracks stable releases
+- [**update-testing**](.github/workflows/update-testing.yml) — tracks pre-releases
