@@ -7,6 +7,7 @@
 require "json"
 require "digest/sha2"
 require "open3"
+require "rubygems"
 
 TYPE = ARGV.find { |a| a.start_with?("--") }&.sub("--", "")
 unless %w[stable testing].include?(TYPE)
@@ -48,12 +49,17 @@ end
 # ── 1. fetch latest release ────────────────────────────────────────────
 
 releases = JSON.parse(sh("curl -sS #{API}"))
+            .reject { |r| r["draft"] }
+
+def prerelease_tag?(tag)
+  tag.match?(/(?:alpha|beta|rc)[.\d-]/i)
+end
 
 latest = if TYPE == "stable"
-           releases.find { |r| !r["prerelease"] && !r["draft"] }
+           releases.select { |r| !prerelease_tag?(r["tag_name"]) }
          else
-           releases.find { |r| r["prerelease"] && !r["draft"] }
-         end
+           releases.select { |r| prerelease_tag?(r["tag_name"]) }
+         end.max_by { |r| Gem::Version.new(r["tag_name"].sub(/^v/, "").sub(/-reF1nd$/, "")) }
 
 abort "No #{TYPE} release found." unless latest
 
