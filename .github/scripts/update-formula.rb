@@ -49,10 +49,10 @@ end
 # ── 1. fetch latest release ────────────────────────────────────────────
 
 releases = JSON.parse(sh("curl -sS #{API}"))
-            .reject { |r| r["draft"] }
+            .reject { |r| r["draft"] || r["tag_name"].nil? }
 
 def prerelease_tag?(tag)
-  tag.match?(/(?:alpha|beta|rc)[.\d-]/i)
+  tag&.match?(/(?:alpha|beta|rc)[.\d-]/i) || false
 end
 
 latest = if TYPE == "stable"
