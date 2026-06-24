@@ -48,7 +48,7 @@ end
 
 # ── 1. fetch latest release ────────────────────────────────────────────
 
-releases = JSON.parse(sh("curl -sS #{API}"))
+releases = JSON.parse(sh("curl -fsS --retry 3 -H 'Authorization: Bearer #{GITHUB_TOKEN}' #{API}"))
             .reject { |r| r["draft"] || r["tag_name"].nil? }
 
 def prerelease_tag?(tag)
