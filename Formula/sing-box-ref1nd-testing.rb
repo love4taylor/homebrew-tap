@@ -5,20 +5,20 @@ class SingBoxRef1ndTesting < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.34-reF1nd/sing-box-1.14.0-alpha.34-reF1nd-darwin-arm64.tar.gz"
-      sha256 "23c09fa054a43a1b772357d1dd4096313521289892c172765da985cfaeb92c25"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.35-reF1nd.1/sing-box-1.14.0-alpha.35-reF1nd.1-darwin-arm64.tar.gz"
+      sha256 "11669de2fe460f5edd1a9a612c26fbacfc96c729e7576f0f9521eb79fb840056"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.34-reF1nd/sing-box-1.14.0-alpha.34-reF1nd-darwin-amd64.tar.gz"
-      sha256 "2af26180e9695ccfefe093818ff2322dc1c81207000dfffb4d0e7847f9d277d3"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.35-reF1nd.1/sing-box-1.14.0-alpha.35-reF1nd.1-darwin-amd64.tar.gz"
+      sha256 "1f982fe8f966504f173b124cb7d5acdf33e34802584cd872f07315a73224ff7b"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.34-reF1nd/sing-box-1.14.0-alpha.34-reF1nd-linux-arm64-musl.tar.gz"
-      sha256 "53fe4ef513ab56bbc8ce5d6e7f426587d641c3f8876b8ee8e3fb891a8fbd8468"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.35-reF1nd.1/sing-box-1.14.0-alpha.35-reF1nd.1-linux-arm64-musl.tar.gz"
+      sha256 "5397115d2e74c4330ba4dbc9a824b96392f7a91a3ca963e7bd2823fbc3d54efd"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.34-reF1nd/sing-box-1.14.0-alpha.34-reF1nd-linux-amd64-musl.tar.gz"
-      sha256 "25ba2f09dbd353c917fab200d83ec1f8063d969f1d77ec2c73b1318aa5046177"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.35-reF1nd.1/sing-box-1.14.0-alpha.35-reF1nd.1-linux-amd64-musl.tar.gz"
+      sha256 "f5cebb8e43b05b55ba2f9e33df99c9d64ec104a4346b651595ab8bd5ed7fe3a2"
     end
   end
 
