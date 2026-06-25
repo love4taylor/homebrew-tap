@@ -36,7 +36,7 @@ def rollback_formula(cur_ver, upstream_versions, formula_file, type)
 
   # 2. Get commits touching this formula file, newest first
   log = sh("git log --format='%H|||%s' -- #{formula_file}")
-  return if log.strip.empty?
+  abort "No git history found for #{formula_file}; cannot determine what to revert." if log.strip.empty?
 
   # 3. Scan forward: collect SHAs whose version is no longer in upstream
   shas_to_revert = []
@@ -81,12 +81,9 @@ def rollback_formula(cur_ver, upstream_versions, formula_file, type)
   puts "Reverted to latest upstream version. Done."
   exit 0
 rescue Exception => e
-  system("git revert --abort 2>/dev/null")
-  if e.is_a?(SystemExit)
-    raise e
-  else
-    abort "Rollback failed: #{e.message}"
-  end
+  system("git reset --hard HEAD")
+  raise if e.is_a?(SystemExit) || e.is_a?(SignalException)
+  abort "Rollback failed: #{e.message}"
 end
 
 # ── helpers ────────────────────────────────────────────────────────────
@@ -122,7 +119,7 @@ latest = if TYPE == "stable"
            releases.select { |r| !prerelease_tag?(r["tag_name"]) }
          else
            releases.select { |r| prerelease_tag?(r["tag_name"]) }
-         end.max_by { |r| Gem::Version.new(r["tag_name"].sub(/^v/, "")) }
+         end.max_by { |r| Gem::Version.new(r["tag_name"].sub(/^v/, "").sub(/-reF1nd/, "")) }
 
 abort "No #{TYPE} release found." unless latest
 
