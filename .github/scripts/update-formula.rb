@@ -28,6 +28,67 @@ FORMULA_FILE = if TYPE == "stable"
                  "Formula/sing-box-ref1nd-testing.rb"
                end
 
+# ── rollback on upstream deletion ────────────────────────────────────────
+
+def rollback_formula(cur_ver, upstream_versions, formula_file, type)
+  # 1. Sync with remote to avoid push conflicts
+  sh("git pull --ff-only origin main")
+
+  # 2. Get commits touching this formula file, newest first
+  log = sh("git log --format='%H|||%s' -- #{formula_file}")
+  return if log.strip.empty?
+
+  # 3. Scan forward: collect SHAs whose version is no longer in upstream
+  shas_to_revert = []
+  log.each_line do |line|
+    sha, msg = line.strip.split("|||", 2)
+    if msg&.match?(/^#{Regexp.escape(type)}: bump to (.+)$/)
+      commit_ver = $1
+      unless upstream_versions.include?(commit_ver)
+        shas_to_revert << sha
+        next
+      end
+    end
+    # Stop at the first commit we don't want to revert
+    break
+  end
+
+  abort "No revert targets found for #{formula_file}." if shas_to_revert.empty?
+
+  puts "Reverting #{shas_to_revert.length} commit(s): #{shas_to_revert.join(', ')}"
+
+  # 4. Build merged revert message
+  revert_messages = shas_to_revert.map do |sha|
+    orig_msg = sh("git log -1 --format='%s' #{sha}").strip
+    "Revert \"#{orig_msg}\"\n\nThis reverts commit #{sha}.\n"
+  end
+  commit_msg = revert_messages.join("\n")
+
+  # 5. Revert all into index without committing
+  sh("git revert --no-commit #{shas_to_revert.join(' ')}")
+
+  # 6. Commit with merged message via tempfile (avoids shell escaping issues)
+  require "tempfile"
+  msg_file = Tempfile.new("revert-commit-msg")
+  msg_file.write(commit_msg)
+  msg_file.close
+  sh("git commit -F '#{msg_file.path}'")
+  msg_file.unlink
+
+  # 7. Push
+  sh("git push origin main")
+
+  puts "Reverted to latest upstream version. Done."
+  exit 0
+rescue Exception => e
+  system("git revert --abort 2>/dev/null")
+  if e.is_a?(SystemExit)
+    raise e
+  else
+    abort "Rollback failed: #{e.message}"
+  end
+end
+
 # ── helpers ────────────────────────────────────────────────────────────
 
 def sh(*cmd)
@@ -51,6 +112,8 @@ end
 releases = JSON.parse(sh("curl -fsS --retry 3 -H 'Authorization: Bearer #{GITHUB_TOKEN}' #{API}"))
             .reject { |r| r["draft"] || r["tag_name"].nil? }
 
+upstream_versions = releases.map { |r| r["tag_name"]&.sub(/^v/, "")&.sub(/-reF1nd.*/, "") }.compact
+
 def prerelease_tag?(tag)
   tag&.match?(/(?:alpha|beta|rc)[.\d-]/i) || false
 end
@@ -59,12 +122,13 @@ latest = if TYPE == "stable"
            releases.select { |r| !prerelease_tag?(r["tag_name"]) }
          else
            releases.select { |r| prerelease_tag?(r["tag_name"]) }
-         end.max_by { |r| Gem::Version.new(r["tag_name"].sub(/^v/, "").sub(/-reF1nd$/, "")) }
+         end.max_by { |r| Gem::Version.new(r["tag_name"].sub(/^v/, "").sub(/-reF1nd.*/, "")) }
 
 abort "No #{TYPE} release found." unless latest
 
-tag    = latest["tag_name"]                     # e.g. "v1.13.13-reF1nd"
-new_ver = tag.sub(/^v/, "").sub(/-reF1nd$/, "")  # e.g. "1.13.13"
+tag      = latest["tag_name"]                       # e.g. "v1.13.13-reF1nd" or "v1.13.14-reF1nd.1"
+asset_id = tag.sub(/^v/, "")                        # e.g. "1.13.13-reF1nd" or "1.13.14-reF1nd.1"
+new_ver  = asset_id.sub(/-reF1nd.*/, "")             # e.g. "1.13.13" or "1.13.14"
 puts "Latest #{TYPE} release: #{tag}  →  version #{new_ver}"
 
 # ── 2. compare with current formula ────────────────────────────────────
@@ -73,7 +137,10 @@ formula = File.read(FORMULA_FILE)
 cur_ver = if TYPE == "stable"
             formula[/^\s*version\s+"([^"]+)"/, 1]
           else
-            formula[%r{url ".*/sing-box-([\d.]+(?:-[\w.]+)*)-reF1nd-(?:darwin|linux)}, 1]
+            # Extract version from the release tag in the download URL
+            # e.g. /download/v1.14.0-alpha.34-reF1nd/ → 1.14.0-alpha.34
+            tag_part = formula[%r{/download/v([^/]+)/}, 1]
+            tag_part&.sub(/-reF1nd.*/, "")
           end
 
 abort "Cannot parse current version from #{FORMULA_FILE}" unless cur_ver
@@ -84,11 +151,17 @@ if cur_ver == new_ver
   exit 0
 end
 
+# Detect if upstream deleted the release our formula references
+unless upstream_versions.include?(cur_ver)
+  puts "Upstream deleted release v#{cur_ver}-reF1nd. Rolling back..."
+  rollback_formula(cur_ver, upstream_versions, FORMULA_FILE, TYPE)
+end
+
 puts "New version available, updating..."
 
 # ── 3. compute SHA256 for each platform ────────────────────────────────
 
-BASE_URL = "https://github.com/#{UPSTREAM_REPO}/releases/download/#{tag}/sing-box-#{new_ver}-reF1nd"
+BASE_URL = "https://github.com/#{UPSTREAM_REPO}/releases/download/#{tag}/sing-box-#{asset_id}"
 
 sha256s = {}
 PLATFORMS.each do |plat|
