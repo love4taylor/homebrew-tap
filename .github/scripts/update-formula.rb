@@ -122,7 +122,7 @@ latest = if TYPE == "stable"
            releases.select { |r| !prerelease_tag?(r["tag_name"]) }
          else
            releases.select { |r| prerelease_tag?(r["tag_name"]) }
-         end.max_by { |r| Gem::Version.new(r["tag_name"].sub(/^v/, "").sub(/-reF1nd.*/, "")) }
+         end.max_by { |r| Gem::Version.new(r["tag_name"].sub(/^v/, "")) }
 
 abort "No #{TYPE} release found." unless latest
 
@@ -138,7 +138,6 @@ cur_ver = if TYPE == "stable"
             formula[/^\s*version\s+"([^"]+)"/, 1]
           else
             # Extract version from the release tag in the download URL
-            # e.g. /download/v1.14.0-alpha.34-reF1nd/ → 1.14.0-alpha.34
             tag_part = formula[%r{/download/v([^/]+)/}, 1]
             tag_part&.sub(/-reF1nd.*/, "")
           end
@@ -146,7 +145,11 @@ cur_ver = if TYPE == "stable"
 abort "Cannot parse current version from #{FORMULA_FILE}" unless cur_ver
 puts "Current version in formula: #{cur_ver}"
 
-if cur_ver == new_ver
+# Extract the full asset identifier from the download URL (includes rebuild suffix)
+current_asset = formula[%r{/download/v[^/]+/sing-box-(.+?)-(?:darwin|linux)}, 1]
+abort "Cannot parse current asset from #{FORMULA_FILE}" unless current_asset
+
+if current_asset == asset_id
   puts "Already up-to-date."
   exit 0
 end
