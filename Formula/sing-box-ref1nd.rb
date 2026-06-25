@@ -1,25 +1,25 @@
 class SingBoxRef1nd < Formula
   desc "Universal proxy platform (reF1nd fork)"
   homepage "https://github.com/reF1nd/sing-box/tree/reF1nd-testing"
-  version "1.13.13"
+  version "1.13.14"
   license "GPL-3.0-or-later"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.13-reF1nd/sing-box-1.13.13-reF1nd-darwin-arm64.tar.gz"
-      sha256 "1b925f0f7858ec5e65b41e44661db15f0bff8c2b88ad44e7db8ae4fdd49e5fcd"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.14-reF1nd.1/sing-box-1.13.14-reF1nd.1-darwin-arm64.tar.gz"
+      sha256 "34eba9a1cc46677439ed12dc42e56e6aacafb67aa0e169b60b0ef4cb925a85e6"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.13-reF1nd/sing-box-1.13.13-reF1nd-darwin-amd64.tar.gz"
-      sha256 "3974cad0cb88ed4a19a074cde2ac47e6d0981b1069c3e0ffe38e64a39ef3f60d"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.14-reF1nd.1/sing-box-1.13.14-reF1nd.1-darwin-amd64.tar.gz"
+      sha256 "7b9c6356883fa11af96fa06243fae4e70f6e85ff3ac7e32f472cd21d0d88a4a8"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.13-reF1nd/sing-box-1.13.13-reF1nd-linux-arm64-musl.tar.gz"
-      sha256 "b3d6a86b119a1b6dc71dda7dbc90db858ef52aa76440f365d363818e4e1b945b"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.14-reF1nd.1/sing-box-1.13.14-reF1nd.1-linux-arm64-musl.tar.gz"
+      sha256 "f071868a62136345fe5e7d9ca667317d4417a58a5f1527ebcfd51e4126073e64"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.13-reF1nd/sing-box-1.13.13-reF1nd-linux-amd64-musl.tar.gz"
-      sha256 "701224a942fcca1bd53eeb8e87ea8a7b4a00869acc96d188fc44dfec44849891"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.14-reF1nd.1/sing-box-1.13.14-reF1nd.1-linux-amd64-musl.tar.gz"
+      sha256 "564d3b5caf560cd50b15a917a54c5e5d07edcf189cc8ef568c46984e43c1dff4"
     end
   end
 
