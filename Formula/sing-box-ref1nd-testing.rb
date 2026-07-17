@@ -5,20 +5,20 @@ class SingBoxRef1ndTesting < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.45-reF1nd/sing-box-1.14.0-alpha.45-reF1nd-darwin-arm64.tar.gz"
-      sha256 "1f205155cd5a54191ee137dc1b4279e63d5cdd65cc0480fb7acf3d3a8bfd657b"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-darwin-arm64.tar.gz"
+      sha256 "5ec3c942acb6fbc1eec32a57156203f6d1140d33dc70db7e50736b2610f9d684"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.45-reF1nd/sing-box-1.14.0-alpha.45-reF1nd-darwin-amd64.tar.gz"
-      sha256 "92056ce95bd58ab8764c9728a9f692cde67c14dd298446ba866389735a33f8b2"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-darwin-amd64.tar.gz"
+      sha256 "d5424e9d26f00cd7a04da24fbe2841a8561157cc90341175fd25eb9451e2baaf"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.45-reF1nd/sing-box-1.14.0-alpha.45-reF1nd-linux-arm64-musl.tar.gz"
-      sha256 "0410172b6b7aa3c7a0d12737a9536b6bcff558bffceadb6ab5854eeb2a48b622"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-linux-arm64-musl.tar.gz"
+      sha256 "8db08c5f443db823a61c830482e0c13c7ef679a61695817079a934187eb95f47"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.45-reF1nd/sing-box-1.14.0-alpha.45-reF1nd-linux-amd64-musl.tar.gz"
-      sha256 "0f1ef4fdf36abd4d59a9239593a3f810051044712342c75fb638232085a6917c"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-linux-amd64-musl.tar.gz"
+      sha256 "bbedcf27e9fb943eb2bf15062846e62c319c26f7aaeb8fc63bf5de1438776d2b"
     end
   end
 
