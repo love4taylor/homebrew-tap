@@ -5,20 +5,20 @@ class SingBoxRef1ndTesting < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-darwin-arm64.tar.gz"
-      sha256 "5ec3c942acb6fbc1eec32a57156203f6d1140d33dc70db7e50736b2610f9d684"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.48-reF1nd/sing-box-1.14.0-alpha.48-reF1nd-darwin-arm64.tar.gz"
+      sha256 "5251ed0b88540ab432604f06a70e0fdfab79e169fdd6ae84b5aa384515504156"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-darwin-amd64.tar.gz"
-      sha256 "d5424e9d26f00cd7a04da24fbe2841a8561157cc90341175fd25eb9451e2baaf"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.48-reF1nd/sing-box-1.14.0-alpha.48-reF1nd-darwin-amd64.tar.gz"
+      sha256 "91b487ec38222fbc708990f965c010cff039c172772054d09339614a9d8a13b3"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-linux-arm64-musl.tar.gz"
-      sha256 "8db08c5f443db823a61c830482e0c13c7ef679a61695817079a934187eb95f47"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.48-reF1nd/sing-box-1.14.0-alpha.48-reF1nd-linux-arm64-musl.tar.gz"
+      sha256 "e277a28d17df87b83e863222ebcc19317095aad30b1b4c5947171cf0c8ad1418"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.46-reF1nd.1/sing-box-1.14.0-alpha.46-reF1nd.1-linux-amd64-musl.tar.gz"
-      sha256 "bbedcf27e9fb943eb2bf15062846e62c319c26f7aaeb8fc63bf5de1438776d2b"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.48-reF1nd/sing-box-1.14.0-alpha.48-reF1nd-linux-amd64-musl.tar.gz"
+      sha256 "0965f45d88f15579dcc85bd0e898cb0000cbc2db0d517f7cf70c42cfc3944326"
     end
   end
 
