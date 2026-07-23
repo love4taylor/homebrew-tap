@@ -5,20 +5,20 @@ class SingBoxRef1ndTesting < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.50-reF1nd/sing-box-1.14.0-alpha.50-reF1nd-darwin-arm64.tar.gz"
-      sha256 "b0f3fc0b1bd9c19f7f596845ef14d333c3b3b41db95ee04a6222cb4514b5f8f8"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-beta.1-reF1nd/sing-box-1.14.0-beta.1-reF1nd-darwin-arm64.tar.gz"
+      sha256 "729e42cc084e37812e5b0da362a897d48fb0b719e47459b3040dbcd09dfe2b57"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.50-reF1nd/sing-box-1.14.0-alpha.50-reF1nd-darwin-amd64.tar.gz"
-      sha256 "ae4951bde39b370e86a9977bb20847ee0944b9b4ed5f7b5d84b8db5afb9700d6"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-beta.1-reF1nd/sing-box-1.14.0-beta.1-reF1nd-darwin-amd64.tar.gz"
+      sha256 "23115943e5713e01aa6c5f100bd068f1200482ccc754a081d75f6c931d9c6ad6"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.50-reF1nd/sing-box-1.14.0-alpha.50-reF1nd-linux-arm64-musl.tar.gz"
-      sha256 "66d90bafb149aec4c774435080973141c690296fd8c6a375bf23f5c68b301894"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-beta.1-reF1nd/sing-box-1.14.0-beta.1-reF1nd-linux-arm64-musl.tar.gz"
+      sha256 "236694820a1ab9131268162e4ac56583db639c3366c561b614c857e5c16ffe73"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-alpha.50-reF1nd/sing-box-1.14.0-alpha.50-reF1nd-linux-amd64-musl.tar.gz"
-      sha256 "2a0d4e396eca943e2ae0d7b619ea2d6ac307182c84f5c50ff0fae9cc92793ec8"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-beta.1-reF1nd/sing-box-1.14.0-beta.1-reF1nd-linux-amd64-musl.tar.gz"
+      sha256 "671e5aed3d21d4c9cf757033afacb80fa8306db223a5676d0a4ebee33629f444"
     end
   end
 
