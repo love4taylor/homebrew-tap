@@ -1,25 +1,25 @@
 class SingBoxRef1nd < Formula
   desc "Universal proxy platform (reF1nd fork)"
   homepage "https://github.com/reF1nd/sing-box/tree/reF1nd-testing"
-  version "1.13.16"
+  version "1.13.18"
   license "GPL-3.0-or-later"
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.16-reF1nd/sing-box-1.13.16-reF1nd-darwin-arm64.tar.gz"
-      sha256 "c4b81b6e0d9cd59148c36a69098ee58df57de9f153f41ea2e6cb31da1b423092"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.18-reF1nd/sing-box-1.13.18-reF1nd-darwin-arm64.tar.gz"
+      sha256 "de059bcffd01e6a9345b1aeb635da431796e6c41a85bd9852d3e7928160be47b"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.16-reF1nd/sing-box-1.13.16-reF1nd-darwin-amd64.tar.gz"
-      sha256 "a54a69a38c80ce6cde517bceaba2896448be611108644b94e079f527a196c8e3"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.18-reF1nd/sing-box-1.13.18-reF1nd-darwin-amd64.tar.gz"
+      sha256 "2bc429b55ca63650f5eea745179f9476abcd30fded0f5ca094e2282ff07ee3c3"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.16-reF1nd/sing-box-1.13.16-reF1nd-linux-arm64-musl.tar.gz"
-      sha256 "a55906041dd14b7a16b1432368aae6394955a16548d6c6e4405c213d069ee92f"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.18-reF1nd/sing-box-1.13.18-reF1nd-linux-arm64-musl.tar.gz"
+      sha256 "0128b171faa931a6e77e6bd0c98288b4f8c0e9fbce2e49f53f61f8394f8ff5b8"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.16-reF1nd/sing-box-1.13.16-reF1nd-linux-amd64-musl.tar.gz"
-      sha256 "31a2f86546c05a23d41ba9b4888a74fb2174f32ac60651edb0f1d942b7a9bd46"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.13.18-reF1nd/sing-box-1.13.18-reF1nd-linux-amd64-musl.tar.gz"
+      sha256 "482121807eb25efb0154c75663c6ea60ce2a78126d4f12fd464f3f037123da47"
     end
   end
 
