@@ -6,20 +6,20 @@ class SingBoxRef1nd < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd/sing-box-1.14.0-reF1nd-darwin-arm64.tar.gz"
-      sha256 "5b754ebd4c6cb82dd20fb406b16c6050284a67a8f422fb539686df5e62e47577"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd.1/sing-box-1.14.0-reF1nd.1-darwin-arm64.tar.gz"
+      sha256 "8af47014c21cc0ec565c1c5a7511ca9c3938a23e1de0d7e8229bcb2bf16a5a8a"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd/sing-box-1.14.0-reF1nd-darwin-amd64.tar.gz"
-      sha256 "fa70466ec5ee42f26ec0c8fa7afe8f37520e86b7c189937928183566b27bbe0d"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd.1/sing-box-1.14.0-reF1nd.1-darwin-amd64.tar.gz"
+      sha256 "12389a7e5db543cc8dc6be25582ed689af1e5353cdc6f65baded2365d557bb42"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd/sing-box-1.14.0-reF1nd-linux-arm64-musl.tar.gz"
-      sha256 "d9939db25eee1179e7f5e9e2cb843b6052bea58b472b257e6d2d628475f9ca03"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd.1/sing-box-1.14.0-reF1nd.1-linux-arm64-musl.tar.gz"
+      sha256 "052391a9e94a0bd00e4d2531920dc87f65436500d581918c07b1c4e2406338fc"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd/sing-box-1.14.0-reF1nd-linux-amd64-musl.tar.gz"
-      sha256 "e4beeb36625b9136229b3d2e39c53a69eebb3dc20e60bc66ede584701b34ebd7"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.14.0-reF1nd.1/sing-box-1.14.0-reF1nd.1-linux-amd64-musl.tar.gz"
+      sha256 "6831a8fe8faf0e030715773e4daee75a8a0261a4047bc6cc68e09b9e7f7e0136"
     end
   end
 
