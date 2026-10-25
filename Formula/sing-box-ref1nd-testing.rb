@@ -5,20 +5,20 @@ class SingBoxRef1ndTesting < Formula
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.11-reF1nd/sing-box-1.15.0-alpha.11-reF1nd-darwin-arm64.tar.gz"
-      sha256 "7b502c038e0bd5459c81702e7b14be78037f27dfebd94f0ae45fd2d67fc13122"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.13-reF1nd/sing-box-1.15.0-alpha.13-reF1nd-darwin-arm64.tar.gz"
+      sha256 "54bb6a5634bd8b4c7d54c68204ceb70f2ed01d134d6905405e8b82368bc0545a"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.11-reF1nd/sing-box-1.15.0-alpha.11-reF1nd-darwin-amd64.tar.gz"
-      sha256 "e4643d57f2ac05cca4a892c79c083df1cf7d54c9c06064114ce411cb53d91004"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.13-reF1nd/sing-box-1.15.0-alpha.13-reF1nd-darwin-amd64.tar.gz"
+      sha256 "65f564e09bff803306ab89ea6ec4cbcc5943fdaf540474fd559b539c49f8db2e"
     end
   end
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.11-reF1nd/sing-box-1.15.0-alpha.11-reF1nd-linux-arm64-musl.tar.gz"
-      sha256 "6840a1c1ec3d924bf6620126a2736a89098bf562c50eccd2c2de577dc8a75e1c"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.13-reF1nd/sing-box-1.15.0-alpha.13-reF1nd-linux-arm64-musl.tar.gz"
+      sha256 "a7488e25fa1e07ddb7c290bcef6ce4d42d7e452e04eafd43ded96b8fe70a343a"
     else
-      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.11-reF1nd/sing-box-1.15.0-alpha.11-reF1nd-linux-amd64-musl.tar.gz"
-      sha256 "7179981f14c225e3e872ac60af2086d6d719b4ddfd901c115c86cd9e4581f4fb"
+      url "https://github.com/reF1nd/sing-box-releases/releases/download/v1.15.0-alpha.13-reF1nd/sing-box-1.15.0-alpha.13-reF1nd-linux-amd64-musl.tar.gz"
+      sha256 "c99bf450be654c7ce6dcca569aee12f584711ae365e5660847ae2ecd285f8ecd"
     end
   end
 
